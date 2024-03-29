@@ -17,21 +17,36 @@ It should be possible to personalize the page for each event. In addition to the
 * Various statistic features via the LAN Launcher
 
 ## Things required:
+
 * Working docker or podman environment
 
 ## Installation:
+
 - Clone this repository
-- Copy or rename `config.sample.php` to `config.php` and change values
-- See the `*.sample.xml` and `launcher.sample.ini` files and modify them to match your needs (copy the sample to a file without `sample` in the name,
-  `launcher.ini` for example)
+- Modify the following files according to your specs:
+  - `config.php`
+  - `dl.xml`
+  - `faq.xml`
+  - `launcher.ini`
+  - `servers.xml`
+- Change the images:
+  - `logo.jpg`
+  - `logo.png`
+  - `favicon.ico`
 - Execute `podman-compose up` in the project folder
-- (Make sure that your host exposes port 80 with domain name `launcher.lan` to make the `launcher.ini` work, see `docker-compose.yaml`)
+- See the page at http://localhost:3000
+
+### Port 80 for `launcher.ini`
+
+- Make sure to run `docker` or `podman` in rootful mode
+- Uncomment `network_mode` in `docker-compose.yaml`
+- Comment the `ports` section
+- See the page at http://localhost and the http://localhost/launcher.ini
 
 ### Update configs
 
 - Change the file contents
-- Stop the running container (Ctrl + C or `podman-compose down`)
-- Restart and rebuild the container `podman-compose up --build`
+- Restart the container with `podman-compose restart`
 
 ## Screenshots:
 

@@ -6,8 +6,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    # Comment in the line below if running docker or rootful podman
+    #network_mode: host
     ports:
       - "3000:80"
-      # Comment this in if running docker or rootful podman
-      #- "80:80"
-
+    volumes:
+      - .:/var/www/html

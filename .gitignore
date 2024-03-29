@@ -3,8 +3,5 @@ desktop.ini
 *desktop.ini
 
 .idea
-config.php
-faq.xml
-servers.xml
-dl.xml
-launcher.ini
+competition/data/*
+!competition/data/jqb_Test.json
