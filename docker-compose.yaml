@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  lanpage:
+    image: lanpage:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+      # Comment this in if running docker or rootful podman
+      #- "80:80"
+

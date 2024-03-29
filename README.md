@@ -7,6 +7,8 @@ It was developed in a very simple way so that anyone with a little knowledge can
 It should be possible to personalize the page for each event. In addition to the customizable logo, further features should be integrated. But lately this project is only an example implementation. Help to improve it or fork it for your own project.
 
 ## Features:
+
+* Simple container to start
 * Entry point for your LAN party event
 * Can be set up quickly and requires no maintenance
 * Designed to always work, even if it is only used once a year
@@ -15,17 +17,21 @@ It should be possible to personalize the page for each event. In addition to the
 * Various statistic features via the LAN Launcher
 
 ## Things required:
-* Webserver and PHP7 or newer
-* PHP SQLite, mbstring and XML extension enabled
+* Working docker or podman environment
 
 ## Installation:
-- Use our automated installer:
-  <code>wget -q https://www.eti-lan.xyz/lanpage.sh && sh lanpage.sh</code> (recommended) or clone the git repository
-- Copy or rename config.sample.php to config.php and change values
-- chown the files to match your webserver/php configured user
-- chmod 0755 db/*.db
-- See the *.sample.xml files and modify them to match your needs
-- See https://www.eti-lan.xyz/#customize for more information about integration and the launcher.ini and launcher.css files
+- Clone this repository
+- Copy or rename `config.sample.php` to `config.php` and change values
+- See the `*.sample.xml` and `launcher.sample.ini` files and modify them to match your needs (copy the sample to a file without `sample` in the name,
+  `launcher.ini` for example)
+- Execute `podman-compose up` in the project folder
+- (Make sure that your host exposes port 80 with domain name `launcher.lan` to make the `launcher.ini` work, see `docker-compose.yaml`)
+
+### Update configs
+
+- Change the file contents
+- Stop the running container (Ctrl + C or `podman-compose down`)
+- Restart and rebuild the container `podman-compose up --build`
 
 ## Screenshots:
 

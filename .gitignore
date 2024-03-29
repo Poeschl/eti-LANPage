@@ -1,4 +1,10 @@
+games/desktop.ini
+desktop.ini
+*desktop.ini
 
-assets/games/desktop.ini
-assets/desktop.ini
-_screenshots/desktop.ini
+.idea
+config.php
+faq.xml
+servers.xml
+dl.xml
+launcher.ini
