@@ -1,6 +1,6 @@
 FROM docker.io/alpine:3.22 as build
 
-RUN apk add --no-cache git
+RUN apk add --no-cache git curl
 
 WORKDIR /tmp/build
 RUN git clone https://github.com/eti-lan/LANPage.git LANPage
@@ -12,6 +12,9 @@ RUN rm -rf LANPage/.git \
 
 # Remove IP address from index since php is only retrieving the docker ip
 RUN sed -i '/<div class="jumbotron">/,/<\/div>/d' /tmp/build/LANPage/index.php
+
+# Add the latest launcher setup file to the build
+RUN curl -o /tmp/build/LANPage/dl/launcher-setup.msi https://www.eti-lan.xyz/get/launcher-setup.msi
 
 FROM docker.io/php:7.2-apache as runtime
 WORKDIR /var/www/html
