@@ -1,7 +1,6 @@
 services:
   lanpage:
-#    image: ghcr.io/poeschl/eti-lanpage:latest
-    image: localhost/test:latest
+    image: ghcr.io/poeschl/eti-lanpage:latest
     # Comment in the line below if running docker or rootful podman and port 80 is required
     #network_mode: host
     ports:
