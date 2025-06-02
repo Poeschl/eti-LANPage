@@ -1,0 +1,48 @@
+name: Publish latest image
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  image:
+    name: Build image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: ↩️ Checkout
+        uses: actions/checkout@v4
+
+      - name: ℹ️ Image meta
+        id: image_meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/poeschl/eti-lanpage
+          tags: latest
+
+      - name: 🚀 Build Image
+        id: build-image
+        uses: redhat-actions/buildah-build@v2
+        with:
+          containerfiles: Dockerfile
+          context: .
+          tags: ${{ steps.image_meta.outputs.tags }}
+          labels: ${{ steps.image_meta.outputs.labels }}
+          # Disable layer caching
+          layers: false
+
+      - name: 🔑 GHCR Login
+        uses: redhat-actions/podman-login@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ⤴️ Push images
+        id: push-image
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ steps.build-image.outputs.image }}
+          tags: ${{ steps.build-image.outputs.tags }}
