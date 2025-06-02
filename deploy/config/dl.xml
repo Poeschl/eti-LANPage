@@ -1,0 +1,14 @@
+<downloads>
+  <download>
+    <name>Teamspeak 3</name>
+    <file>https://files.teamspeak-services.com/releases/client/3.3.2/TeamSpeak3-Client-win64-3.3.2.exe</file>
+    <image>dl/ts3.jpg</image>
+    <version>Teamspeak 3 Client (64 Bit)</version>
+  </download>
+  <download type="link">
+    <name>Homepage</name>
+    <file>https://poeschl.xyz</file>
+    <image>https://www.gravatar.com/avatar/680042d1b126b40e9fcbd47929b61d8a.png?s=200</image>
+    <version>Website</version>
+  </download>
+</downloads>

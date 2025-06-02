@@ -1,0 +1,22 @@
+services:
+  lanpage:
+#    image: ghcr.io/poeschl/eti-lanpage:latest
+    image: localhost/test:latest
+    # Comment in the line below if running docker or rootful podman and port 80 is required
+    #network_mode: host
+    ports:
+      - "3000:80"
+    # Set this to solve possible permission issues with the webserver
+    #user: "www-data:www-data"
+    volumes:
+      # Override the configs on demand
+      - "./config/config.php:/var/www/html/config.php:ro"
+      - "./config/dl.xml:/var/www/html/dl.xml:ro"
+      - "./config/faq.xml:/var/www/html/faq.xml:ro"
+      - "./config/servers.xml:/var/www/html/servers.xml:ro"
+
+      - "./config/favicon.ico:/var/www/html/favicon.ico:ro"
+      - "./config/logo.jpg:/var/www/html/logo.jpg:ro"
+      - "./config/logo.png:/var/www/html/logo.png:ro"
+
+      #- "./config/launcher.ini:/var/www/html/config/launcher.ini:ro"
