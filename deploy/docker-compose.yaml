@@ -20,4 +20,4 @@ services:
 
       #- "./config/custom.css:/var/www/html/assets/custom.css:ro"
 
-      #- "./config/launcher.ini:/var/www/html/config/launcher.ini:ro"
+      #- "./config/launcher.ini:/var/www/html/launcher.ini:ro"
