@@ -18,6 +18,6 @@ services:
       - "./config/logo.jpg:/var/www/html/logo.jpg:ro"
       - "./config/logo.png:/var/www/html/logo.png:ro"
 
-      - "./config/custom.css:/var/www/html/assets/custom.css:ro"
+      #- "./config/custom.css:/var/www/html/assets/custom.css:ro"
 
       #- "./config/launcher.ini:/var/www/html/config/launcher.ini:ro"

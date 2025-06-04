@@ -8,6 +8,7 @@ The [original project](https://github.com/eti-lan/LANPage) just gets packed into
 ## Features
 
 * Simple container to start
+* Dark Mode only
 * Entry point for your LAN party event
 * Can be set up quickly and requires no maintenance
 * Designed to always work, even if it is only used once a year
