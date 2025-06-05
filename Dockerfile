@@ -26,6 +26,9 @@ RUN sed -i '/<div class="jumbotron">/,/<\/div>/d' /tmp/build/LANPage/index.php &
 FROM docker.io/php:7.2-apache as runtime
 WORKDIR /var/www/html
 
+# Keep db database files
+VOLUME /var/www/html/db
+
 # Use repository configs as default
 COPY --from=build --chown=www-data /tmp/build/LANPage /var/www/html
 COPY --chown=www-data deploy/config/* /var/www/html/
