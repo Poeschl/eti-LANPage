@@ -62,3 +62,12 @@ html {
     cursor: pointer;
 }
 
+ul.pagination>li>a, .pagination>li>span {
+    color: inherit;
+}
+
+ul.pagination>li.active>a, .pagination>li.active>span {
+    color: #fff;
+    background-color: #981515;
+    border-color: #981515;
+}
