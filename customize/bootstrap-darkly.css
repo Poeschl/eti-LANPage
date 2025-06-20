@@ -71,3 +71,8 @@ ul.pagination>li.active>a, .pagination>li.active>span {
     background-color: #981515;
     border-color: #981515;
 }
+
+ul.pagination>li.active>a:hover, .pagination>li.active>span:hover {
+    background-color: #6b0f0f;
+    border-color: #6b0f0f;
+}
